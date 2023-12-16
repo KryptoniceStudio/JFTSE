@@ -247,7 +247,7 @@ public class MatchplayGuardianGame extends MatchplayGame {
 
             int expMultiplier = getGuardianStage().getExpMultiplier();
             playerReward.setExp(this.getExpPot().get() * expMultiplier);
-            playerReward.setGold(this.getGoldPot().get());
+            playerReward.setGold(this.getGoldPot().get() * expMultiplier);
             playerReward.setProductIndex(-1);
 
             if (stageRewards != null) {
