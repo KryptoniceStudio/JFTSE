@@ -1,5 +1,6 @@
 package com.jftse.emulator.server.core.matchplay.game;
 
+import com.jftse.emulator.common.service.ConfigService;
 import com.jftse.emulator.server.core.constants.BonusIconHighlightValues;
 import com.jftse.emulator.server.core.constants.GameFieldSide;
 import com.jftse.emulator.server.core.life.progression.ExpGoldBonus;
@@ -240,6 +241,9 @@ public class MatchplayGuardianGame extends MatchplayGame {
         this.playerBattleStates.forEach(x -> {
             PlayerReward playerReward = new PlayerReward(x.getPosition());
             playerReward.setPlayerPosition(x.getPosition());
+
+            int expMultiplierCfg = ConfigService.getInstance().getValue("game.bonus.guadian.exp", 2);
+            getGuardianStage().setExpMultiplier(expMultiplierCfg);
 
             int expMultiplier = getGuardianStage().getExpMultiplier();
             playerReward.setExp(this.getExpPot().get() * expMultiplier);

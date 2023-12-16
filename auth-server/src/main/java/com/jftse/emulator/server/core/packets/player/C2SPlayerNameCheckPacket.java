@@ -13,6 +13,6 @@ public class C2SPlayerNameCheckPacket extends Packet {
         super(packet);
 
         this.nickname = this.readUnicodeString();
-        this.nickname = getNickname().trim().replaceAll("[^a-zA-Z0-9\\s+]", "");
+        this.nickname = getNickname().trim().replaceAll("[^a-zA-Z0-9ก-๙\\s+]", "");
     }
 }
